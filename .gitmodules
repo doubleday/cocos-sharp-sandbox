@@ -1,0 +1,3 @@
+[submodule "CocosSharp"]
+	path = CocosSharp
+	url = https://github.com/mono/CocosSharp.git

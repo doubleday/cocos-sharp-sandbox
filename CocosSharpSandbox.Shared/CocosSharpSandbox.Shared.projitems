@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{89F3E310-44FF-4150-ACF4-AD59D1BF64F9}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>CocosSharpSandbox</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)SandboxApplicationDelegate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestLayer1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CCScale9Sprite.cs" />
+  </ItemGroup>
+</Project>
