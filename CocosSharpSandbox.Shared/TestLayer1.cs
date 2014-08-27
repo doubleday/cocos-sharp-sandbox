@@ -14,7 +14,7 @@ namespace CocosSharpSandbox
             bg.Position = ContentSize.Center;
             AddChild(bg);
 
-            var motor = new CCSprite("motor.png");
+            var motor = new CCSprite("motor-ss.png");
             motor.Position = new CCPoint(160, 240);
             AddChild(motor);
 
@@ -30,6 +30,12 @@ namespace CocosSharpSandbox
             label.Position = new CCPoint(160, motor.Position.Y + motor.ContentSize.Height / 2 + 10);
 
             AddChild(label);
+
+            var label2 = new CCLabelBMFont("Rotor", "marker.fnt");
+            label2.AnchorPoint = CCPoint.AnchorMiddle;
+            label2.Position = new CCPoint(160, motor.Position.Y - motor.ContentSize.Height / 2 - 10);
+
+            AddChild(label2);
         }
 
         public static CCScene Scene(CCWindow window)

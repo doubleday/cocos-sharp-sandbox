@@ -99,6 +99,12 @@
     <BundleResource Include="Content\hd\sprites.png" />
     <BundleResource Include="Content\ld\sprites.png" />
     <BundleResource Include="Content\ld\sprites.plist" />
+    <BundleResource Include="Content\fonts\marker-32.png" />
+    <BundleResource Include="Content\fonts\marker-32.fnt" />
+    <BundleResource Include="Content\hd\marker.fnt" />
+    <BundleResource Include="Content\hd\marker.png" />
+    <BundleResource Include="Content\ld\marker.fnt" />
+    <BundleResource Include="Content\ld\marker.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -136,5 +142,6 @@
     <Folder Include="Content\" />
     <Folder Include="Content\hd\" />
     <Folder Include="Content\ld\" />
+    <Folder Include="Content\fonts\" />
   </ItemGroup>
 </Project>

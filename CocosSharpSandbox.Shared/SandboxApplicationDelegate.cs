@@ -6,7 +6,7 @@ namespace CocosSharpSandbox
     public class SandboxApplicationDelegate : CCApplicationDelegate
     {
         // 1: standard, 2: retina
-        public const float ContentScaleFactor = 1;
+        public const float ContentScaleFactor = 2;
 
         public override void ApplicationDidFinishLaunching(CCApplication application, CCWindow mainWindow)
         {
