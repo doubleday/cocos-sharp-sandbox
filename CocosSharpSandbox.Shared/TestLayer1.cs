@@ -5,7 +5,7 @@ namespace CocosSharpSandbox
 {
     public class TestLayer1 : CCLayerColor
     {
-        const int CSF = SandboxApplicationDelegate.ContentScaleFactor;
+        const float CSF = SandboxApplicationDelegate.ContentScaleFactor;
 
         protected override void AddedToScene()
         {
@@ -15,28 +15,28 @@ namespace CocosSharpSandbox
             AddChild(bg);
 
             var motor = new CCSprite("motor.png");
-            motor.Position = new CCPoint(160, 240) * CSF;
+            motor.Position = new CCPoint(160, 240);
             AddChild(motor);
 
-            var roundedBorder = new CCScale9Sprite("circle.png");
-            roundedBorder.CapInsets = new CCRect(50 * CSF, 50 * CSF, 1, 1);
-            roundedBorder.PreferredSize = new CCSize(300 * CSF, 300 * CSF);
+            var roundedBorder = new CCScale9Sprite("circle.png", CCRect.Zero, new CCRect(50, 50, 1, 1));
+            roundedBorder.PreferredSize = new CCSize(300, 300);
             roundedBorder.AnchorPoint = CCPoint.AnchorMiddle;
             roundedBorder.Position = ContentSize.Center;
             AddChild(roundedBorder);
+
+            CCLabel label = new CCLabel("Motor", "Courier", 18 * CSF);
+            label.AnchorPoint = CCPoint.AnchorMiddle;
+            label.Color = CCColor3B.Red;
+            label.Position = new CCPoint(160, motor.Position.Y + motor.ContentSize.Height / 2 + 10);
+
+            AddChild(label);
         }
 
         public static CCScene Scene(CCWindow window)
         {
             var scene = new CCScene(window);
 
-            var camera = new CCCamera(
-                             CCCameraProjection.Projection2D, window.DesignResolutionSize * CSF
-                         );
-
             var layer = new TestLayer1();
-            layer.Camera = camera;
-
             scene.AddChild(layer);
 
             return scene;

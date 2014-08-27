@@ -5,7 +5,8 @@ namespace CocosSharpSandbox
 {
     public class SandboxApplicationDelegate : CCApplicationDelegate
     {
-        public const int ContentScaleFactor = 2;
+        // 1: standard, 2: retina
+        public const float ContentScaleFactor = 1;
 
         public override void ApplicationDidFinishLaunching(CCApplication application, CCWindow mainWindow)
         {
@@ -15,6 +16,7 @@ namespace CocosSharpSandbox
             mainWindow.SupportedDisplayOrientations = CCDisplayOrientation.Portrait;
             mainWindow.SetDesignResolutionSize(320, 480, CCSceneResolutionPolicy.ShowAll);
 
+            CCSprite.DefaultTextureToContentScale = 1 / ContentScaleFactor;
             if (ContentScaleFactor > 1)
             {
                 application.ContentSearchPaths.Add("hd");
@@ -23,6 +25,8 @@ namespace CocosSharpSandbox
             {
                 application.ContentSearchPaths.Add("ld");
             }
+
+            CCSpriteFrameCache.SharedSpriteFrameCache.AddSpriteFrames("sprites.plist");
 
             CCScene scene = TestLayer1.Scene(mainWindow);
             mainWindow.RunWithScene(scene);

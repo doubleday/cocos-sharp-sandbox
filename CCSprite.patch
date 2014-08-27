@@ -1,0 +1,51 @@
+diff --git a/src/sprite_nodes/CCSprite.cs b/src/sprite_nodes/CCSprite.cs
+index 490bdc3..a500ddf 100644
+--- a/src/sprite_nodes/CCSprite.cs
++++ b/src/sprite_nodes/CCSprite.cs
+@@ -33,6 +33,18 @@ public class CCSprite : CCNode, ICCTexture
+         protected internal CCV3F_C4B_T2F_Quad Quad { get { return quad; } }
+         protected internal CCV3F_C4B_T2F_Quad TransformedQuad { get { return transformedQuad; } } 
+ 
++        public static float DefaultTextureToContentScale
++        {
++            set { DefaultTextureToContentScaling = new CCSize (value, value); }
++        }
++
++        // Allowing for different width and height scale
++        public static CCSize DefaultTextureToContentScaling 
++        {
++            get;
++            set;
++        }
++
+         public bool IsAntialiased
+         {
+             get { return Texture.IsAntialiased; }
+@@ -207,10 +219,25 @@ public override CCColor3B Color
+ 
+         public override CCSize ContentSize
+         {
+-            get { return base.ContentSize; }
++            get 
++            { 
++                return base.ContentSize;                 
++            }
+             set
+             {
+-                base.ContentSize = value;
++                if (CCSprite.DefaultTextureToContentScaling != CCSize.Zero)
++                {
++                    var scaledSize = new CCSize (
++                        value.Width * CCSprite.DefaultTextureToContentScaling.Width,
++                        value.Height * CCSprite.DefaultTextureToContentScaling.Height
++                    );
++                    
++                    base.ContentSize = scaledSize;                    
++                } 
++                else 
++                {
++                    base.ContentSize = value;
++                }
+ 
+ //                if(untrimmedSizeInPixels == CCSize.Zero)
+                     untrimmedSizeInPixels = value;

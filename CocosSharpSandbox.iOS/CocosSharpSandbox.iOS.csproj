@@ -95,6 +95,10 @@
     <BundleResource Include="Content\ld\motor.png" />
     <BundleResource Include="Content\hd\circle.png" />
     <BundleResource Include="Content\ld\circle.png" />
+    <BundleResource Include="Content\hd\sprites.plist" />
+    <BundleResource Include="Content\hd\sprites.png" />
+    <BundleResource Include="Content\ld\sprites.png" />
+    <BundleResource Include="Content\ld\sprites.plist" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
